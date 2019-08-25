@@ -1,0 +1,25 @@
+{
+
+  "name": "snilk",
+
+  "description": "private discord bot",
+
+  "version": "0.0.0",
+
+  "main": "snilk.js",
+
+  "scripts": {
+
+    "start": "node snilk.js"
+
+  },
+
+  "dependencies": {
+
+    "discord.js": "11.1.0",
+
+    "request": "2.81.0"
+
+  }
+
+}
