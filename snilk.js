@@ -14,7 +14,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-    var searchMe = message.content;
+    var searchMe = message.content.toLowerCase();
     var channelType = message.channel.type;
     var notAccepted = "dm";
     if (message.author.bot || channelType == notAccepted){
