@@ -22,10 +22,11 @@ client.on('message', message => {
     }
     if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipple') || searchMe.includes('sniddies')) {
        message.react(process.env.SNTOP);
-       // var thisTime = message.createdAt;
-       // thisTime = thisTime - 0;
+       var thisTime = message.createdAt;
+       thisTime = thisTime - 0;
+
        // //console.log(thisTime);
-       // //message.channel.send("<:Sntop:615186732341788672> " + thisTime);
+       message.channel.send("<:Sntop:615186732341788672> " + thisTime);
        // var lastTime;
        // var lastCont;
        // var lastMessage = client.guilds.get(process.env.MONITOR_GUILD).channels.get(process.env.MONITOR_CHANNEL).fetchMessages({limit: 1}).then(messages =>{
