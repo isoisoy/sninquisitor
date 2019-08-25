@@ -31,34 +31,62 @@ client.on('message', message => {
        //works up to here
        var lastTime;
        var lastCont;
-       var lastMessage = client.guilds.get(process.env.GUILD).channels.get(process.env.CHANNEL).fetchMessages({limit: 1}).then(messages =>{
-         lastTime = messages.array();
-         let extraStep = lastTime[0];
-         lastCont = extraStep.content;
+       if (message.guild.id == process.env.TGUILD || message.guild.id == process.env.MYGUILD){
+         var lastMessage = client.guilds.get(process.env.GUILD).channels.get(process.env.CHANNEL).fetchMessages({limit: 1}).then(messages =>{
+           lastTime = messages.array();
+           let extraStep = lastTime[0];
+           lastCont = extraStep.content;
 
-         //console.log(lastDate);
-         client.guilds.get(process.env.GUILD).channels.get(process.env.CHANNEL).send(" "+thisTime);
-         var timeDiff = thisTime - lastCont;
-         //console.log(timeDiff);
-         var msec = Number(timeDiff);
-         var days = Math.floor(msec / 1000 / 60 / 60 / 24);
-         msec -= days * 1000 * 60 * 60 * 24;
-         var hours = Math.floor(msec / 1000 / 60 / 60);
-         msec -= hours * 1000 * 60 * 60;
-         //console.log(hours);
-         var min = Math.floor(msec / 1000 / 60);
-         msec -= min * 1000 * 60;
-         var sec = Math.floor(msec / 1000);
-         msec -= sec * 1000;
-         if (days > 0){
-           message.channel.send("It has been "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
-         } else {
-           message.channel.send("It has been "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
-         }
+           //console.log(lastDate);
+           client.guilds.get(process.env.GUILD).channels.get(process.env.CHANNEL).send(" "+thisTime);
+           var timeDiff = thisTime - lastCont;
+           //console.log(timeDiff);
+           var msec = Number(timeDiff);
+           var days = Math.floor(msec / 1000 / 60 / 60 / 24);
+           msec -= days * 1000 * 60 * 60 * 24;
+           var hours = Math.floor(msec / 1000 / 60 / 60);
+           msec -= hours * 1000 * 60 * 60;
+           //console.log(hours);
+           var min = Math.floor(msec / 1000 / 60);
+           msec -= min * 1000 * 60;
+           var sec = Math.floor(msec / 1000);
+           msec -= sec * 1000;
+           if (days > 0){
+             message.channel.send("It has been "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
+           } else {
+             message.channel.send("It has been "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
+           }
 
-        }).catch(console.error);
+          }).catch(console.error);
+       } else {
+         var lastMessage = client.guilds.get(process.env.GUILD).channels.get(process.env.ECHANNEL).fetchMessages({limit: 1}).then(messages =>{
+           lastTime = messages.array();
+           let extraStep = lastTime[0];
+           lastCont = extraStep.content;
 
+           //console.log(lastDate);
+           client.guilds.get(process.env.GUILD).channels.get(process.env.ECHANNEL).send(" "+thisTime);
+           var timeDiff = thisTime - lastCont;
+           //console.log(timeDiff);
+           var msec = Number(timeDiff);
+           var days = Math.floor(msec / 1000 / 60 / 60 / 24);
+           msec -= days * 1000 * 60 * 60 * 24;
+           var hours = Math.floor(msec / 1000 / 60 / 60);
+           msec -= hours * 1000 * 60 * 60;
+           //console.log(hours);
+           var min = Math.floor(msec / 1000 / 60);
+           msec -= min * 1000 * 60;
+           var sec = Math.floor(msec / 1000);
+           msec -= sec * 1000;
+           if (days > 0){
+             message.channel.send("It has been "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
+           } else {
+             message.channel.send("It has been "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
+           }
+
+          }).catch(console.error);
        }
+      }
 
 });
 
