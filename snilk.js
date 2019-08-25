@@ -31,7 +31,7 @@ client.on('message', message => {
        //works up to here
        var lastTime;
        var lastCont;
-       var lastMessage = client.guilds.get(process.env.MONITOR_GUILD).channels.get(process.env.MONITOR_CHANNEL).fetchMessages({limit: 1}).then(messages =>{
+       var lastMessage = client.guilds.get('409071061527691264').channels.get("423253584990437376").fetchMessages({limit: 1}).then(messages =>{
          lastTime = messages.array();
          let extraStep = lastTime[0];
          lastCont = extraStep.content;
