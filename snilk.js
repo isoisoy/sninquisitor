@@ -20,9 +20,10 @@ client.on('message', message => {
     if (message.author.bot || channelType == notAccepted){
       return;
     }
-    if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipples') || searchMe.includes('sniddies')) {
+    if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipple') || searchMe.includes('sniddies')) {
        message.react(process.env.SNTOP);
        var thisTime = message.createdAt;
+       thisTime = thisTime - 0;
        //console.log(thisTime);
        //message.channel.send("<:Sntop:615186732341788672> " + thisTime);
        var lastTime;
@@ -31,14 +32,10 @@ client.on('message', message => {
          lastTime = messages.array();
          let extraStep = lastTime[0];
          lastCont = extraStep.content;
-         var setDate = lastCont.slice(0,24);
-         //console.log(tryme);
-         //console.log(lastCont);
 
-         var lastDate = new Date(setDate);
          //console.log(lastDate);
          client.guilds.get(process.env.MONITOR_GUILD).channels.get(process.env.MONITOR_CHANNEL).send(" "+thisTime);
-         var timeDiff = thisTime - lastDate;
+         var timeDiff = thisTime - lastCont;
          //console.log(timeDiff);
          var msec = Number(timeDiff);
          var days = Math.floor(msec / 1000 / 60 / 60 / 24);
