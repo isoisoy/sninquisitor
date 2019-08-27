@@ -20,7 +20,7 @@ client.on('message', message => {
     if (message.author.bot || channelType == notAccepted){
       return;
     }
-    if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipple') || searchMe.includes('sniddies')) {
+    if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipple') || searchMe.includes('sniddies') || searchMe.includes('snitty') || searchMe.includes('snenis') || searchMe.includes('snussy')) {
        message.react(process.env.SNTOP);
        var thisTime = message.createdAt;
        thisTime = thisTime - 0;
