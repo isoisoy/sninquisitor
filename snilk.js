@@ -16,7 +16,9 @@ const snilk = [
   "snemen",       //9
   "snum",         //10
   "snulva",       //11
-  "snut"          //12
+  "snut",         //12
+  "snicc",        //13
+  "snick "        //14
 ]
 
 client.on('ready', () => {
