@@ -171,7 +171,7 @@ function containS(target, pattern){
 function checkRecord(newTimeDiff,server){
   var isLarger = 0;
   var setMessage;
-  if (server = 1){
+  if (server == 1){
     setMessage = record;
   } else {
     setMessage = rec2;
