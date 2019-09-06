@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
-const record = "619302938304839691";
+const record = "619336908387909690";
 const snilk = [
   "snilk",        //0
   "snitty",       //1
