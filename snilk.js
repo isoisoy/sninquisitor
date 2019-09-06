@@ -37,7 +37,7 @@ client.on('message', message => {
     if (searchMe.includes('pls2')){
       message.channel.send("8474117");
     }
-    if (searchMe.includes('#snilkrecord')){
+    if (searchMe.includes('?snilkrecord')){
       //message.channel.send("0");
       client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
         var timeSet = messageIN.content;
