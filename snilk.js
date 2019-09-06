@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 const record = "619336908387909690";
-//const rec2 = "";
+const rec2 = "619340762328596491";
 const snilk = [
   "snilk",        //0
   "snitty",       //1
@@ -37,29 +37,29 @@ client.on('message', message => {
     }
 
     if (searchMe.includes('?snilkrecord')){
-      message.channel.send("0");
-      // var setMessage;
-      // if (server = 1){
-      //   setMessage = record;
-      // } else {
-      //   //setMessage = ""
-      // }
-      // client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
-      //   var timeSet = messageIN.content;
-      //
-      //   var largeDiff = Number(timeSet);
-      //
-      //   var timeArray = timeConvert(largeDiff);
-      //   let days = timeArray[0];
-      //   let hours = timeArray[1];
-      //   let min = timeArray[2];
-      //   let sec = timeArray[3];
-      //   if (days > 0){
-      //     message.channel.send("The current record is "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
-      //   } else {
-      //     message.channel.send("The current record is "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
-      //   }
-      // });
+      //message.channel.send("0");
+      var setMessage;
+      if (server = 1){
+        setMessage = record;
+      } else {
+        setMessage = rec2;
+      }
+      client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(setMessage).then( messageIN => {
+        var timeSet = messageIN.content;
+
+        var largeDiff = Number(timeSet);
+
+        var timeArray = timeConvert(largeDiff);
+        let days = timeArray[0];
+        let hours = timeArray[1];
+        let min = timeArray[2];
+        let sec = timeArray[3];
+        if (days > 0){
+          message.channel.send("The current record is "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
+        } else {
+          message.channel.send("The current record is "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
+        }
+      });
 
     }
     else if (containS(searchMe, snilk)) {
@@ -121,7 +121,7 @@ client.on('message', message => {
 
            if(checkRecord(msec,0)){
              message.channel.send("***New Record!***");
-             client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
+             client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(rec2).then( messageIN => {
 
                messageIN.edit(timeDiff);
 
@@ -172,9 +172,9 @@ function checkRecord(newTimeDiff,server){
   if (server = 1){
     setMessage = record;
   } else {
-    //setMessage = ""
+    setMessage = rec2;
   }
-  return client.guilds.get('409071061527691264').channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
+  return client.guilds.get('409071061527691264').channels.get("619302938304839691").fetchMessage(setMessage).then( messageIN => {
 
     var timeSet = messageIN.content;
 
