@@ -39,7 +39,7 @@ client.on('message', message => {
     if (searchMe.includes('?snilkrecord')){
       //message.channel.send("0");
       var setMessage;
-      if (server = 1){
+      if (message.guild.id == process.env.TGUILD){
         setMessage = record;
       } else {
         setMessage = rec2;
