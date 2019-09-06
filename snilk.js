@@ -1,8 +1,22 @@
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
-
-
+const record = "619302938304839691";
+const snilk = [
+  "snilk",        //0
+  "snitty",       //1
+  "snittie",      //2
+  "snipple",      //3
+  "sniddie",      //4
+  "snussy",       //5
+  "snenis",       //6
+  "snagina",      //7
+  "snumshot",     //8
+  "snemen",       //9
+  "snum",         //10
+  "snulva",       //11
+  "snut"          //12
+]
 
 client.on('ready', () => {
 
@@ -20,15 +34,35 @@ client.on('message', message => {
     if (message.author.bot || channelType == notAccepted){
       return;
     }
-    if (searchMe.includes('snilk') || searchMe.includes('snitties') || searchMe.includes('snipple') || searchMe.includes('sniddies') || searchMe.includes('snitty') || searchMe.includes('snenis') || searchMe.includes('snussy')) {
+    if (searchMe.includes('pls2')){
+      message.channel.send("8474117");
+    }
+    if (searchMe.includes('#snilkrecord')){
+      //message.channel.send("0");
+      client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
+        var timeSet = messageIN.content;
+
+        var largeDiff = Number(timeSet);
+
+        var timeArray = timeConvert(largeDiff);
+        let days = timeArray[0];
+        let hours = timeArray[1];
+        let min = timeArray[2];
+        let sec = timeArray[3];
+        if (days > 0){
+          message.channel.send("The current record is "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
+        } else {
+          message.channel.send("The current record is "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
+        }
+      });
+
+
+    }
+    else if (containS(searchMe, snilk)) {
        message.react(process.env.SNTOP);
        var thisTime = message.createdAt;
        thisTime = thisTime - 0;
 
-       // //console.log(thisTime);
-       //message.channel.send("<:Sntop:615186732341788672> " + thisTime);
-
-       //works up to here
        var lastTime;
        var lastCont;
        if (message.guild.id == process.env.TGUILD || message.guild.id == process.env.MYGUILD){
@@ -42,15 +76,21 @@ client.on('message', message => {
            var timeDiff = thisTime - lastCont;
            //console.log(timeDiff);
            var msec = Number(timeDiff);
-           var days = Math.floor(msec / 1000 / 60 / 60 / 24);
-           msec -= days * 1000 * 60 * 60 * 24;
-           var hours = Math.floor(msec / 1000 / 60 / 60);
-           msec -= hours * 1000 * 60 * 60;
-           //console.log(hours);
-           var min = Math.floor(msec / 1000 / 60);
-           msec -= min * 1000 * 60;
-           var sec = Math.floor(msec / 1000);
-           msec -= sec * 1000;
+           var timeArray = timeConvert(msec);
+           let days = timeArray[0];
+           let hours = timeArray[1];
+           let min = timeArray[2];
+           let sec = timeArray[3];
+
+           if(checkRecord(msec)){
+             message.channel.send("***New Record!***");
+             client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
+
+               messageIN.edit(timeDiff);
+
+             });
+           }
+
            if (days > 0){
              message.channel.send("It has been "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
            } else {
@@ -69,15 +109,11 @@ client.on('message', message => {
            var timeDiff = thisTime - lastCont;
            //console.log(timeDiff);
            var msec = Number(timeDiff);
-           var days = Math.floor(msec / 1000 / 60 / 60 / 24);
-           msec -= days * 1000 * 60 * 60 * 24;
-           var hours = Math.floor(msec / 1000 / 60 / 60);
-           msec -= hours * 1000 * 60 * 60;
-           //console.log(hours);
-           var min = Math.floor(msec / 1000 / 60);
-           msec -= min * 1000 * 60;
-           var sec = Math.floor(msec / 1000);
-           msec -= sec * 1000;
+           var timeArray = timeConvert(msec);
+           let days = timeArray[0];
+           let hours = timeArray[1];
+           let min = timeArray[2];
+           let sec = timeArray[3];
            if (days > 0){
              message.channel.send("It has been "+days+" days, "+hours+" hours, "+min+" minutes, and "+sec+" seconds since the last mention of anything related to snilk.");
            } else {
@@ -92,3 +128,42 @@ client.on('message', message => {
 
 
 client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+
+function timeConvert(msec){
+
+  var days = Math.floor(msec / 1000 / 60 / 60 / 24);
+  msec -= days * 1000 * 60 * 60 * 24;
+  var hours = Math.floor(msec / 1000 / 60 / 60);
+  msec -= hours * 1000 * 60 * 60;
+  //console.log(hours);
+  var min = Math.floor(msec / 1000 / 60);
+  msec -= min * 1000 * 60;
+  var sec = Math.floor(msec / 1000);
+  msec -= sec * 1000;
+
+  return [days,hours,min,sec];
+}
+
+function containS(target, pattern){
+    var value = 0;
+    pattern.forEach(function(word){
+      value = value + target.includes(word);
+    });
+    return (value === 1)
+}
+
+function checkRecord(newTimeDiff){
+  var isLarger = 0;
+  return client.guilds.get('409071061527691264').channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
+
+    var timeSet = messageIN.content;
+
+    var largeDiff = Number(timeSet);
+    if (newTimeDiff > largeDiff){
+      isLarger = 1;
+    }
+    return isLarger;
+
+  });
+
+}
