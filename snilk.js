@@ -34,9 +34,7 @@ client.on('message', message => {
     if (message.author.bot || channelType == notAccepted){
       return;
     }
-    if (searchMe.includes('pls2')){
-      message.channel.send("8474117");
-    }
+
     if (searchMe.includes('?snilkrecord')){
       //message.channel.send("0");
       client.guilds.get(process.env.MYGUILD).channels.get("619302938304839691").fetchMessage(record).then( messageIN => {
@@ -55,8 +53,7 @@ client.on('message', message => {
           message.channel.send("The current record is "+hours+" hours, "+min+" minutes, and "+sec+" seconds.")
         }
       });
-
-
+      return;
     }
     else if (containS(searchMe, snilk)) {
        message.react(process.env.SNTOP);
