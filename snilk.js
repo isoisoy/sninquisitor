@@ -12,7 +12,7 @@ const snilk = [
   "snussy",       //5
   "snenis",       //6
   "snagina",      //7
-  "snumshot",     //8
+  //"snumshot",     //8
   "snemen",       //9
   "snum",         //10
   "snulva",       //11
