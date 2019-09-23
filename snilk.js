@@ -12,7 +12,7 @@ const snilk = [
   "snussy",       //5
   "snenis",       //6
   "snagina",      //7
-  //"snumshot",     //8
+  "snumshot",     //8
   "snemen",       //9
   "snum",         //10
   "snulva",       //11
@@ -205,7 +205,7 @@ function containS(target, pattern){
     pattern.forEach(function(word){
       value = value + target.includes(word);
     });
-    return (value === 1)
+    return (value >= 1)
 }
 
 function checkRecord(newTimeDiff,server){
