@@ -35,8 +35,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-    var searchMe2 = message.content.toLowerCase();
-    var searchMe = “. “.concat(searchMe2,“ “);
+    var searchMe = message.content.toLowerCase();
+    //var searchMe = “. “.concat(searchMe2,“ “);
     var channelType = message.channel.type;
     var notAccepted = "dm";
     if (message.author.bot || channelType == notAccepted){
