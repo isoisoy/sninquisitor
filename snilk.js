@@ -168,13 +168,13 @@ client.on('message', message => {
 
           }).catch(console.error);
        }
-      } else if (searchMe.includes('snek')||searchMe.includes(' angle ')){
-        if (searchMe.includes('snek')&&searchMe.includes(' angle ')){
+      } else if (searchMe.includes('snek')||searchMe.includes('angle')){
+        if (searchMe.includes('snek')&&searchMe.includes('angle')){
           message.react("625399891816087557");
           message.react("625399934786601000");
         } else if(searchMe.includes('snek')){
           message.react("625399891816087557");
-        } else if(searchMe.includes(' angle ')){
+        } else if(searchMe.includes('angle')){
           message.react("625399934786601000");
         }
 
