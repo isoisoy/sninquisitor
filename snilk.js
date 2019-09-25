@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const record = "619336908387909690";
 const rec2 = "619340762328596491";
+const myID = process.env.MYID;
+
 const snilk = [
   "snilk",        //0
   "snitty",       //1
@@ -23,7 +25,25 @@ const snilk = [
   "snunt",        //16
   "snits",        //17
   "snit "         //18
-]
+];
+
+const resp = [
+/*0*/  "He need some SNILK!",
+/*1*/  "looking good bb",
+/*2*/  "wouldn't you like to know *sneather* boy?",
+/*3*/  "how you doing today?",
+/*4*/  "back @ it again @ snrispy sneme",
+/*5*/  "you are a gem",
+/*6*/  "LOOK AT ALL THOSE SNICKENS",
+/*7*/  "hope you're doing well",
+/*8*/  "i don't have enough for snicken nuggets :(",
+/*9*/  "sending good vibes your way",
+/*10*/  "this bitch **empty** SNEET",
+/*11*/  "nothing but the best for you, love",
+/*12*/  "stahhp!   I coulda dropped my snroissant",
+/*13*/  "I appreciate you!",
+/*14*/  "You can do great things!"
+];
 
 client.on('ready', () => {
 
@@ -34,13 +54,33 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-
-    var searchMe = message.content.toLowerCase();
-    //var searchMe = “. “.concat(searchMe2,“ “);
     var channelType = message.channel.type;
     var notAccepted = "dm";
     if (message.author.bot || channelType == notAccepted){
       return;
+    }
+
+    var searchMe2 = message.content.toLowerCase();
+    var searchMe = ". ".concat(searchMe2," .");
+
+
+
+
+    if (message.mentions.users.array().length > 0){
+      var myArray = message.mentions.users.array();
+      var thisIsMe = 0;
+
+      myArray.forEach(function(mentioned){
+        let idToCheck = mentioned.id;
+        if (idToCheck == myID){
+          thisIsMe = 1;
+        }
+      });
+
+      if (thisIsMe == 1){
+        let selection = getRandomInt(resp.length-1);
+        message.channel.send(resp[selection]);
+      }
     }
 
     if (searchMe.includes('?snilkrecord')){
@@ -168,13 +208,13 @@ client.on('message', message => {
 
           }).catch(console.error);
        }
-      } else if (searchMe.includes('snek')||searchMe.includes('angle')){
-        if (searchMe.includes('snek')&&searchMe.includes('angle')){
+      } else if (searchMe.includes('snek')||searchMe.includes(' angle ')){
+        if (searchMe.includes('snek')&&searchMe.includes(' angle' )){
           message.react("625399891816087557");
           message.react("625399934786601000");
         } else if(searchMe.includes('snek')){
           message.react("625399891816087557");
-        } else if(searchMe.includes('angle')){
+        } else if(searchMe.includes(' angle ')){
           message.react("625399934786601000");
         }
 
@@ -229,4 +269,7 @@ function checkRecord(newTimeDiff,server){
 
   });
 
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
