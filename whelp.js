@@ -15,7 +15,7 @@ var roleList; // List of Assigned Roles
 var removeTheRole; // Boolean-ish for if role needs to be removed
 var ConnNow; // connection value
 
-// Bot related
+// Bot related hmm
 const prefix = '!';
 
 // Emojis
