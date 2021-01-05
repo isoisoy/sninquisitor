@@ -2,13 +2,6 @@
 const Discord = require("discord.js"); // Discord
 const client = new Discord.Client(); // Makes an object for the client
 
-var process = {
-    env: {
-        BOT_TOKEN: "NDE4NDc3NDYyNjYyNjc2NDgw.Wpb3gg.A-I0dho45aLSJ-QWRu3BrzF-gXM",//'NDQxMDc5OTA0Mzg2NDE2NjUy.WukxrA.rmAurZ5-EenMniepoKPlkZ8R8_0';
-        dracGuild: "227597884646752256"
-    }
-};
-
 
 // Response to ready client
 client.on("ready", () => {
