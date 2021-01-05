@@ -16,7 +16,7 @@ var removeTheRole; // Boolean-ish for if role needs to be removed
 var ConnNow; // connection value
 
 // Bot related
-const prefix = '#';
+const prefix = '!';
 
 // Emojis
 const reactEmoji = "423264671030837303";
