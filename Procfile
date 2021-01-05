@@ -1,1 +1,1 @@
-worker: node snilk.js
+worker: node whelp.js
