@@ -2,21 +2,31 @@
 const Discord = require("discord.js"); // Discord
 const client = new Discord.Client(); // Makes an object for the client
 
+var process = {
+    env: {
+        BOT_TOKEN: "NDE4NDc3NDYyNjYyNjc2NDgw.Wpb3gg.A-I0dho45aLSJ-QWRu3BrzF-gXM",//'NDQxMDc5OTA0Mzg2NDE2NjUy.WukxrA.rmAurZ5-EenMniepoKPlkZ8R8_0';
+        dracGuild: "227597884646752256"
+    }
+};
+
 
 // Response to ready client
 client.on("ready", () => {
   console.log(`I am ready as ${client.user.tag}!`);
 });
 
+// to log in the bot
+//process.env.
+client.login(process.env.BOT_TOKEN);
+
 // Variables
 var roleEval; // Role to Evaluate
 var roleCheck; // Role to Check Against
 var roleList; // List of Assigned Roles
 var removeTheRole; // Boolean-ish for if role needs to be removed
-var ConnNow; // connection value
 
-// Bot related hmm
-const prefix = "!";
+// Bot related
+const prefix = '!';
 
 // Emojis
 const reactEmoji = "423264671030837303";
@@ -406,9 +416,7 @@ client.on("message", (message) => {
 
 });
 
-// to log in the bot
-//process.env.
-client.login(process.env.BOT_TOKEN);
+
 
 // Functions
 
