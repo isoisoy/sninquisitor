@@ -135,7 +135,7 @@ client.on("message", (message) => {
 
   // message properties
   var name = message.author.username; // used in the bot report
-  var nickCheck = message.member.nickname;
+  //var nickCheck = message.member.nickname;
 
   // author properties
   roleList = message.member.roles.cache;
@@ -405,7 +405,7 @@ client.on("message", (message) => {
     finalReport = goodReport;
   }
 
-  client.channels.cache.get(botReport2).send(name+"/"+nickCheck+finalReport+contentsMess[0]);
+  client.channels.cache.get(botReport2).send(name+finalReport+contentsMess[0]);
 
 });
 
