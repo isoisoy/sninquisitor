@@ -1,16 +1,16 @@
 {
 
-  "name": "snilk",
+  "name": "whelp",
 
   "description": "private discord bot",
 
   "version": "0.0.0",
 
-  "main": "snilk.js",
+  "main": "whelp.js",
 
   "scripts": {
 
-    "start": "node snilk.js"
+    "start": "node whelp.js"
 
   },
 
